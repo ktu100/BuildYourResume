@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { UserContext } from '../context/userContext';
 import Navbar from './Navbar';
 
-const DashboardLayout = ({ activeMenu, children }) => {
+const DashBoardLayout = ({ activeMenu, children }) => {
   const { user } = useContext(UserContext);
   return (
     <div>
@@ -12,4 +12,4 @@ const DashboardLayout = ({ activeMenu, children }) => {
   );
 };
 
-export default DashboardLayout;
+export default DashBoardLayout;

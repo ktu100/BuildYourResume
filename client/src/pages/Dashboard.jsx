@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../utils/axiosInstance';
 import { API_PATHS } from '../utils/apiPaths';
-import DashboardLayout from '../components/DashboardLayout';
+import DashboardLayout from '../components/DashBoardLayout';
 import { LuCirclePlus, LuFilePlus, LuTrash2 } from 'react-icons/lu';
 import moment from 'moment';
 import { ResumeSummaryCard } from '../components/Cards';
