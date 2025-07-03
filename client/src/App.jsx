@@ -7,7 +7,7 @@ import Dashboard from './pages/Dashboard'
 import EditResume from './components/EditResume'
 import { Toaster } from 'react-hot-toast'
 
-//https://buildyourresume-frontend.onrender.com
+//https://buildyourresume-fronntend.onrender.com/
 
 const App = () => {
   return (
