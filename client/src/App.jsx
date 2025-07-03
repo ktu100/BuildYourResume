@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
 import UserProvider from './context/userContext'
 import { LayoutDashboard } from 'lucide-react'
-import Dashboard from './pages/dashboard'
+import Dashboard from './pages/Dashboard'
 import EditResume from './components/EditResume'
 import { Toaster } from 'react-hot-toast'
 
