@@ -8,6 +8,10 @@ import { connectDB } from './config/db.js';
 import userRouter from './routes/userRoutes.js';
 import resumeRouter from './routes/resumeRoutes.js';
 
+const allowedOrigins = [
+  "https://buildyourresume-fronntend.onrender.com"
+];
+
 
 const app=express();
 const PORT=4000;
@@ -26,7 +30,7 @@ app.use(
   '/uploads',
   express.static(path.join(__dirname, 'uploads'), {
     setHeaders: (res, _path) => {
-      res.set('Access-Control-Allow-Origin', 'http://localhost:5173');
+      res.set('Access-Control-Allow-Origin', '//https://buildyourresume-fronntend.onrender.com/');
     },
   })
 );

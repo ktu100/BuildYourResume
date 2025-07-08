@@ -1,4 +1,3 @@
-"use client"
 
 const Tabs = ({ tabs, activeTab, setActiveTab }) => {
   return (
