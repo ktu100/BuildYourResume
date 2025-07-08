@@ -1,9 +1,9 @@
-import express from 'express';
-import cors from 'cors';
+import  express from 'express';
+import  cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import 'dotenv/config';
+import 'dotenv/config'
 import { connectDB } from './config/db.js';
 import userRouter from './routes/userRoutes.js';
 import resumeRouter from './routes/resumeRoutes.js';
@@ -12,23 +12,11 @@ const allowedOrigins = [
   "https://buildyourresume-fronntend.onrender.com"
 ];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-};
 
-const app = express();
-const PORT = 4000;
+const app=express();
+const PORT=4000;
+app.use(cors());
 
-
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -36,19 +24,21 @@ app.use(express.json());
 
 connectDB();
 
-app.use('/api/auth', userRouter);
-app.use('/api/resume', resumeRouter);
-
-
+app.use('/api/auth',userRouter); 
+app.use('/api/resume',resumeRouter);
 app.use(
   '/uploads',
-  express.static(path.join(__dirname, 'uploads'))
+  express.static(path.join(__dirname, 'uploads'), {
+    setHeaders: (res, _path) => {
+      res.set('Access-Control-Allow-Origin', '//https://buildyourresume-fronntend.onrender.com/');
+    },
+  })
 );
 
-app.get('/', (req, res) => {
-  res.send('Hello How are You');
-});
+app.get('/',(req,res)=>{
+    res.send('Hello How are You');
+})
 
-app.listen(PORT, () => {
-  console.log('Server Listening');
-});
+app.listen(PORT,()=>{
+    console.log("Server Listening");
+})
